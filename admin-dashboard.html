@@ -1,69 +1,145 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
 
-<title>Admin Dashboard | Spirit Life Missions Team</title>
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1">
 
-<link rel="icon" href="logo.jpg">
-<link rel="stylesheet" href="admin.css">
+<meta
+name="robots"
+content="noindex,nofollow">
+
+<title>
+Admin Dashboard | Spirit Life Missions Team
+</title>
+
+<link
+rel="icon"
+href="logo.jpg">
+
+<link
+rel="stylesheet"
+href="admin.css">
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+SIDEBAR
+===================================================== -->
+
 <aside class="sidebar">
 
+
 <div class="brand">
-<img src="logo.jpg" alt="Spirit Life Missions Team">
+
+<img
+src="logo.jpg"
+alt="Spirit Life Missions Team">
 
 <div>
-<strong>Spirit Life</strong>
-<span>Admin Panel</span>
+
+<strong>
+Spirit Life
+</strong>
+
+<span>
+Admin Panel
+</span>
+
 </div>
+
 </div>
+
 
 <nav>
 
-<button class="nav-item active" data-section="dashboard">
+<button
+class="nav-item active"
+data-section="dashboard">
+
 📊 Dashboard
+
 </button>
 
-<button class="nav-item" data-section="photos">
+
+<button
+class="nav-item"
+data-section="photos">
+
 🖼️ Photos
+
 </button>
 
-<button class="nav-item" data-section="pages">
+
+<button
+class="nav-item"
+data-section="pages">
+
 📝 Pages
+
 </button>
 
-<button class="nav-item" data-section="campaign">
+
+<button
+class="nav-item"
+data-section="campaign">
+
 🏗️ Campaign
+
 </button>
 
-<button class="nav-item" data-section="settings">
+
+<button
+class="nav-item"
+data-section="settings">
+
 ⚙️ Settings
+
 </button>
 
 </nav>
 
+
 <div class="sidebar-bottom">
 
-<a class="back-link" href="index.html">
+<a
+class="back-link"
+href="index.html">
+
 ← Website
+
 </a>
 
-<button class="logout" id="logout">
+
+<button
+class="logout"
+id="logout">
+
 🚪 Sign out
+
 </button>
 
 </div>
 
+
 </aside>
 
 
+
+<!-- =====================================================
+MAIN
+===================================================== -->
+
 <main class="main">
+
 
 <header class="topbar">
 
@@ -77,21 +153,34 @@ SPIRIT LIFE MISSIONS TEAM
 Dashboard
 </h1>
 
-<p id="adminIdentity" class="identity"></p>
+<p
+id="adminIdentity"
+class="identity">
+</p>
 
 </div>
 
+
 <span class="status">
+
 <i></i>
+
 Secure admin
+
 </span>
 
 </header>
 
 
-<!-- DASHBOARD -->
 
-<section id="dashboard" class="section active-section">
+<!-- =====================================================
+DASHBOARD
+===================================================== -->
+
+<section
+id="dashboard"
+class="section active-section">
+
 
 <div class="welcome">
 
@@ -106,13 +195,13 @@ Website management
 </h2>
 
 <p>
-You are signed in as an authorized administrator.
-Photo/content tools will connect to Supabase in the next management stage.
+Manage your website content, photos and campaign directly from this dashboard.
 </p>
 
 </div>
 
 </div>
+
 
 
 <div class="cards">
@@ -129,14 +218,19 @@ Photos
 </h3>
 
 <p>
-Prepare image management for mission, missionary, ministry and project photos.
+Upload and replace website images using Supabase Storage.
 </p>
 
-<button class="action" data-go="photos">
+<button
+class="action"
+data-go="photos">
+
 Manage photos
+
 </button>
 
 </article>
+
 
 
 <article class="card">
@@ -150,14 +244,19 @@ Pages
 </h3>
 
 <p>
-Prepare editable website content for the public pages.
+Edit important text displayed on your website.
 </p>
 
-<button class="action" data-go="pages">
+<button
+class="action"
+data-go="pages">
+
 Manage pages
+
 </button>
 
 </article>
+
 
 
 <article class="card">
@@ -171,11 +270,15 @@ Campaign
 </h3>
 
 <p>
-Manage the Spirit Life Missions Centre campaign data.
+Update the Missions Centre campaign information.
 </p>
 
-<button class="action" data-go="campaign">
-Open campaign
+<button
+class="action"
+data-go="campaign">
+
+Manage campaign
+
 </button>
 
 </article>
@@ -187,22 +290,26 @@ Open campaign
 <div class="notice">
 
 <strong>
-Protected area:
+Connected:
 </strong>
 
-the dashboard is shown only after Supabase authentication and an
-<code>admin_users</code>
-authorization check.
+Your dashboard is connected to Supabase.
 
 </div>
+
 
 </section>
 
 
 
-<!-- PHOTOS -->
+<!-- =====================================================
+PHOTOS
+===================================================== -->
 
-<section id="photos" class="section">
+<section
+id="photos"
+class="section">
+
 
 <div class="section-head">
 
@@ -218,78 +325,139 @@ Photo management
 
 </div>
 
-<span class="badge">
-Management next
-</span>
-
 </div>
 
 
 <div class="panel">
 
+
+<div id="photoMessage"
+class="alert"
+hidden>
+</div>
+
+
 <p>
-Next, this section will upload, replace and delete photos through Supabase Storage.
+Upload a new image and assign it to a website image slot.
 </p>
 
 
-<div class="photo-grid">
+<form id="photoForm">
 
 
-<div class="photo-card">
+<label>
 
-<img src="hero.jpg" alt="">
+Photo slot
 
-<span>
+<select
+id="photoKey"
+required>
+
+<option value="hero">
 Hero image
-</span>
+</option>
 
-</div>
-
-
-<div class="photo-card">
-
-<img src="missionary-portrait.jpg" alt="">
-
-<span>
+<option value="missionary">
 Missionary portrait
-</span>
+</option>
 
-</div>
+<option value="outreach">
+Outreach image
+</option>
 
-
-<div class="photo-card">
-
-<img src="outreach-1.jpg" alt="">
-
-<span>
-Outreach
-</span>
-
-</div>
-
-
-<div class="photo-card">
-
-<img src="ministry-team.jpg" alt="">
-
-<span>
+<option value="ministry">
 Ministry team
-</span>
+</option>
+
+<option value="centre">
+Missions Centre
+</option>
+
+<option value="media">
+Media image
+</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+Photo title
+
+<input
+type="text"
+id="photoTitle"
+maxlength="100"
+placeholder="Example: Missionary portrait">
+
+</label>
+
+
+
+<label>
+
+Choose image
+
+<input
+type="file"
+id="photoFile"
+accept="image/jpeg,image/png,image/webp"
+required>
+
+</label>
+
+
+
+<button
+class="primary"
+type="submit"
+id="uploadBtn">
+
+Upload / Replace Photo
+
+</button>
+
+
+</form>
+
+
+<hr>
+
+
+<h3>
+Current website photos
+</h3>
+
+
+<div
+id="photoGrid"
+class="photo-grid">
+
+<p>
+Loading photos...
+</p>
 
 </div>
 
 
 </div>
 
-</div>
 
 </section>
 
 
 
-<!-- PAGES -->
+<!-- =====================================================
+PAGES
+===================================================== -->
 
-<section id="pages" class="section">
+<section
+id="pages"
+class="section">
+
 
 <div class="section-head">
 
@@ -305,117 +473,95 @@ Website pages
 
 </div>
 
-<span class="badge">
-Management next
-</span>
-
 </div>
 
 
 <div class="panel">
 
-<div class="page-list">
+
+<div
+id="contentMessage"
+class="alert"
+hidden>
+</div>
 
 
-<div>
-<strong>
+<label>
+
+Select page
+
+<select id="contentPage">
+
+<option value="home">
 Home
-</strong>
+</option>
 
-<span>
-index.html
-</span>
-</div>
-
-
-<div>
-<strong>
+<option value="missionary">
 Missionary
-</strong>
+</option>
 
-<span>
-missionary.html
-</span>
-</div>
-
-
-<div>
-<strong>
+<option value="ministry">
 Ministry
-</strong>
+</option>
 
-<span>
-ministry.html
-</span>
-</div>
-
-
-<div>
-<strong>
+<option value="missions">
 Missions
-</strong>
+</option>
 
-<span>
-missions.html
-</span>
-</div>
-
-
-<div>
-<strong>
+<option value="centre">
 Centre Vision
-</strong>
+</option>
 
-<span>
-centre.html
-</span>
-</div>
-
-
-<div>
-<strong>
+<option value="media">
 Media
-</strong>
+</option>
 
-<span>
-media.html
-</span>
-</div>
-
-
-<div>
-<strong>
+<option value="give">
 Give
-</strong>
+</option>
 
-<span>
-give.html
-</span>
-</div>
-
-
-<div>
-<strong>
+<option value="contact">
 Contact
-</strong>
+</option>
 
-<span>
-contact.html
-</span>
+</select>
+
+</label>
+
+
+<div id="contentEditor">
+
+<p>
+Loading content...
+</p>
+
 </div>
 
 
-</div>
+<button
+class="primary"
+id="saveContent">
+
+💾 Save Page Changes
+
+</button>
+
 
 </div>
+
 
 </section>
 
 
 
-<!-- CAMPAIGN -->
+<!-- =====================================================
+CAMPAIGN
+===================================================== -->
 
-<section id="campaign" class="section">
+<section
+id="campaign"
+class="section">
+
 
 <div class="section-head">
 
@@ -431,78 +577,113 @@ $1 to 1 Million Campaign
 
 </div>
 
-<span class="badge">
-Management next
-</span>
-
 </div>
 
 
-<div class="panel campaign-panel">
-
-<h3>
-One Dollar. One Million Commitments. One Mission Centre.
-</h3>
+<div class="panel">
 
 
-<div class="campaign-stats">
+<div
+id="campaignMessage"
+class="alert"
+hidden>
+</div>
 
 
-<div>
+<form id="campaignForm">
 
-<strong>
-1,000,000
-</strong>
 
-<span>
+<label>
+
+Campaign title
+
+<input
+type="text"
+id="campaignTitle"
+required>
+
+</label>
+
+
+<label>
+
+Campaign tagline
+
+<input
+type="text"
+id="campaignTagline"
+required>
+
+</label>
+
+
+<label>
+
 Target commitments
-</span>
+
+<input
+type="number"
+id="targetCommitments"
+min="1"
+required>
+
+</label>
+
+
+<label>
+
+Commitments received
+
+<input
+type="number"
+id="commitmentsReceived"
+min="0"
+required>
+
+</label>
+
+
+<label>
+
+Amount raised
+
+<input
+type="number"
+id="amountRaised"
+min="0"
+step="0.01"
+required>
+
+</label>
+
+
+<button
+class="primary"
+type="submit">
+
+💾 Save Campaign
+
+</button>
+
+
+</form>
+
 
 </div>
 
-
-<div>
-
-<strong>
-$1
-</strong>
-
-<span>
-Base commitment
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-US$1,000,000
-</strong>
-
-<span>
-Target
-</span>
-
-</div>
-
-
-</div>
-
-
-<p>
-Payment-confirmation data can be connected later so only verified payments update the public counter.
-</p>
-
-</div>
 
 </section>
 
 
 
-<!-- SETTINGS -->
+<!-- =====================================================
+SETTINGS
+===================================================== -->
 
-<section id="settings" class="section">
+<section
+id="settings"
+class="section">
+
 
 <div class="section-head">
 
@@ -523,129 +704,1093 @@ Settings
 
 <div class="panel">
 
+
 <h3>
 Administrator
 </h3>
 
-<p>
-Authentication is handled by Supabase.
-Keep your Supabase secret/service-role key off this website.
+
+<p id="settingsIdentity">
+Loading...
 </p>
+
+
+<hr>
+
+
+<h3>
+Supabase connection
+</h3>
+
+
+<p>
+Your website uses Supabase Authentication, Database and Storage.
+</p>
+
+
+<div class="notice">
+
+<strong>
+Security:
+</strong>
+
+Never put your Supabase service-role key inside your website.
 
 </div>
 
+
+</div>
+
+
 </section>
+
 
 </main>
 
 
 
-<!-- SUPABASE -->
+<!-- =====================================================
+SUPABASE
+===================================================== -->
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
 
-<script src="supabase-config.js"></script>
 
-<script src="auth.js"></script>
+<script src="supabase-config.js">
+</script>
+
+
+<script src="auth.js">
+</script>
+
 
 
 <script>
 
-requireAdmin().then(result => {
 
-if (result) {
+/* =====================================================
+GLOBAL
+===================================================== */
 
-document.getElementById('adminIdentity').textContent =
-(result.admin.display_name || result.admin.email)
-+ ' • '
-+ result.admin.email;
+let adminResult = null;
+
+let currentPage = 'home';
+
+let currentContent = {};
+
+
+
+/* =====================================================
+HELPERS
+===================================================== */
+
+function showMessage(element, text, type = 'success') {
+
+    element.textContent = text;
+
+    element.className =
+        'alert ' + type;
+
+    element.hidden = false;
 
 }
+
+
+function hideMessage(element) {
+
+    element.hidden = true;
+
+}
+
+
+
+/* =====================================================
+ADMIN CHECK
+===================================================== */
+
+requireAdmin().then(result => {
+
+    if (!result) return;
+
+    adminResult = result;
+
+
+    const identity =
+        (result.admin.display_name || result.admin.email)
+        + ' • '
+        + result.admin.email;
+
+
+    document.getElementById(
+        'adminIdentity'
+    ).textContent = identity;
+
+
+    document.getElementById(
+        'settingsIdentity'
+    ).textContent = identity;
+
+
+    loadPhotos();
+
+    loadPageContent('home');
+
+    loadCampaign();
 
 });
 
 
+
+/* =====================================================
+NAVIGATION
+===================================================== */
+
 const navItems =
-document.querySelectorAll('.nav-item');
+    document.querySelectorAll('.nav-item');
+
 
 const sections =
-document.querySelectorAll('.section');
+    document.querySelectorAll('.section');
+
 
 const pageTitle =
-document.getElementById('pageTitle');
+    document.getElementById('pageTitle');
 
 
 function openSection(name) {
 
-sections.forEach(section => {
 
-section.classList.toggle(
-'active-section',
-section.id === name
-);
+    sections.forEach(section => {
 
-});
+        section.classList.toggle(
+            'active-section',
+            section.id === name
+        );
 
-
-navItems.forEach(item => {
-
-item.classList.toggle(
-'active',
-item.dataset.section === name
-);
-
-});
+    });
 
 
-const activeItem =
-document.querySelector(
-'.nav-item[data-section="' + name + '"]'
-);
+    navItems.forEach(item => {
+
+        item.classList.toggle(
+            'active',
+            item.dataset.section === name
+        );
+
+    });
 
 
-if (activeItem) {
+    const activeItem =
+        document.querySelector(
+            '.nav-item[data-section="' + name + '"]'
+        );
 
-pageTitle.textContent =
-activeItem.textContent.trim();
+
+    if (activeItem) {
+
+        pageTitle.textContent =
+            activeItem.textContent.trim();
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 
 }
 
 
-window.scrollTo({
-top: 0,
-behavior: 'smooth'
-});
-
-}
-
 
 navItems.forEach(item => {
 
-item.addEventListener(
-'click',
-() => openSection(item.dataset.section)
-);
+    item.addEventListener(
+        'click',
+        () => openSection(
+            item.dataset.section
+        )
+    );
 
 });
 
-
-document.querySelectorAll('[data-go]')
-.forEach(button => {
-
-button.addEventListener(
-'click',
-() => openSection(button.dataset.go)
-);
-
-});
 
 
 document
-.getElementById('logout')
-.addEventListener(
-'click',
-signOut
+    .querySelectorAll('[data-go]')
+    .forEach(button => {
+
+        button.addEventListener(
+            'click',
+            () => openSection(
+                button.dataset.go
+            )
+        );
+
+    });
+
+
+
+document
+    .getElementById('logout')
+    .addEventListener(
+        'click',
+        signOut
+    );
+
+
+
+/* =====================================================
+PHOTO MANAGEMENT
+===================================================== */
+
+async function loadPhotos() {
+
+
+    const grid =
+        document.getElementById(
+            'photoGrid'
+        );
+
+
+    const { data, error } =
+        await sb
+            .from('site_photos')
+            .select('*')
+            .order('photo_key');
+
+
+    if (error) {
+
+        grid.innerHTML =
+            '<p>Could not load photos.</p>';
+
+        console.error(error);
+
+        return;
+
+    }
+
+
+    if (!data || data.length === 0) {
+
+        grid.innerHTML =
+            '<p>No uploaded photos yet.</p>';
+
+        return;
+
+    }
+
+
+    grid.innerHTML = '';
+
+
+    data.forEach(photo => {
+
+
+        const card =
+            document.createElement('div');
+
+        card.className =
+            'photo-card';
+
+
+        card.innerHTML = `
+
+            <img
+                src="${photo.public_url}"
+                alt="${photo.title || photo.photo_key}">
+
+            <strong>
+                ${photo.title || photo.photo_key}
+            </strong>
+
+            <small>
+                ${photo.photo_key}
+            </small>
+
+            <button
+                class="action delete-photo"
+                data-id="${photo.id}"
+                data-path="${photo.file_path}">
+
+                Delete
+
+            </button>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
+
+    document
+        .querySelectorAll('.delete-photo')
+        .forEach(button => {
+
+            button.addEventListener(
+                'click',
+                () => deletePhoto(
+                    button.dataset.id,
+                    button.dataset.path
+                )
+            );
+
+        });
+
+}
+
+
+
+document
+    .getElementById('photoForm')
+    .addEventListener(
+        'submit',
+        uploadPhoto
+    );
+
+
+
+async function uploadPhoto(event) {
+
+
+    event.preventDefault();
+
+
+    const message =
+        document.getElementById(
+            'photoMessage'
+        );
+
+
+    const button =
+        document.getElementById(
+            'uploadBtn'
+        );
+
+
+    const file =
+        document.getElementById(
+            'photoFile'
+        ).files[0];
+
+
+    const photoKey =
+        document.getElementById(
+            'photoKey'
+        ).value;
+
+
+    const photoTitle =
+        document.getElementById(
+            'photoTitle'
+        ).value.trim();
+
+
+    if (!file) {
+
+        showMessage(
+            message,
+            'Please choose an image.',
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    if (file.size > 8 * 1024 * 1024) {
+
+        showMessage(
+            message,
+            'Image must be smaller than 8MB.',
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+        'Uploading...';
+
+
+    try {
+
+
+        const extension =
+            file.name
+                .split('.')
+                .pop()
+                .toLowerCase();
+
+
+        const filePath =
+            photoKey
+            + '/'
+            + Date.now()
+            + '.'
+            + extension;
+
+
+        const { error: uploadError } =
+            await sb.storage
+                .from('site-photos')
+                .upload(
+                    filePath,
+                    file,
+                    {
+                        upsert: false,
+                        contentType: file.type
+                    }
+                );
+
+
+        if (uploadError) {
+
+            throw uploadError;
+
+        }
+
+
+        const { data: publicData } =
+            sb.storage
+                .from('site-photos')
+                .getPublicUrl(filePath);
+
+
+        const publicUrl =
+            publicData.publicUrl;
+
+
+        /* Remove old database record */
+
+        const { data: oldPhoto } =
+            await sb
+                .from('site_photos')
+                .select('id,file_path')
+                .eq('photo_key', photoKey)
+                .maybeSingle();
+
+
+        /* Insert or update */
+
+        const { error: dbError } =
+            await sb
+                .from('site_photos')
+                .upsert(
+                    {
+                        photo_key: photoKey,
+                        title: photoTitle || photoKey,
+                        file_path: filePath,
+                        public_url: publicUrl,
+                        updated_by: adminResult.session.user.id,
+                        updated_at: new Date().toISOString()
+                    },
+                    {
+                        onConflict: 'photo_key'
+                    }
+                );
+
+
+        if (dbError) {
+
+            throw dbError;
+
+        }
+
+
+        /* Delete previous file */
+
+        if (
+            oldPhoto &&
+            oldPhoto.file_path &&
+            oldPhoto.file_path !== filePath
+        ) {
+
+            await sb.storage
+                .from('site-photos')
+                .remove([
+                    oldPhoto.file_path
+                ]);
+
+        }
+
+
+        showMessage(
+            message,
+            'Photo uploaded successfully.'
+        );
+
+
+        document
+            .getElementById('photoForm')
+            .reset();
+
+
+        loadPhotos();
+
+
+    } catch (error) {
+
+
+        console.error(error);
+
+
+        showMessage(
+            message,
+            error.message ||
+            'Photo upload failed.',
+            'error'
+        );
+
+
+    } finally {
+
+
+        button.disabled = false;
+
+        button.textContent =
+            'Upload / Replace Photo';
+
+    }
+
+}
+
+
+
+async function deletePhoto(id, path) {
+
+
+    if (
+        !confirm(
+            'Delete this photo?'
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    const message =
+        document.getElementById(
+            'photoMessage'
+        );
+
+
+    try {
+
+
+        const { error: storageError } =
+            await sb.storage
+                .from('site-photos')
+                .remove([path]);
+
+
+        if (storageError) {
+
+            throw storageError;
+
+        }
+
+
+        const { error: dbError } =
+            await sb
+                .from('site_photos')
+                .delete()
+                .eq('id', id);
+
+
+        if (dbError) {
+
+            throw dbError;
+
+        }
+
+
+        showMessage(
+            message,
+            'Photo deleted successfully.'
+        );
+
+
+        loadPhotos();
+
+
+    } catch (error) {
+
+
+        console.error(error);
+
+
+        showMessage(
+            message,
+            error.message ||
+            'Could not delete photo.',
+            'error'
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+PAGE CONTENT
+===================================================== */
+
+const contentPage =
+    document.getElementById(
+        'contentPage'
+    );
+
+
+contentPage.addEventListener(
+    'change',
+    () => {
+
+        loadPageContent(
+            contentPage.value
+        );
+
+    }
 );
+
+
+
+async function loadPageContent(page) {
+
+
+    currentPage = page;
+
+
+    const editor =
+        document.getElementById(
+            'contentEditor'
+        );
+
+
+    editor.innerHTML =
+        '<p>Loading...</p>';
+
+
+    const { data, error } =
+        await sb
+            .from('site_content')
+            .select('*')
+            .eq('page', page)
+            .order('id');
+
+
+    if (error) {
+
+        editor.innerHTML =
+            '<p>Could not load content.</p>';
+
+        console.error(error);
+
+        return;
+
+    }
+
+
+    currentContent = {};
+
+
+    data.forEach(item => {
+
+        currentContent[
+            item.content_key
+        ] = item;
+
+    });
+
+
+    editor.innerHTML = '';
+
+
+    data.forEach(item => {
+
+
+        const wrapper =
+            document.createElement(
+                'label'
+            );
+
+
+        wrapper.style.display =
+            'block';
+
+        wrapper.style.marginBottom =
+            '18px';
+
+
+        const label =
+            document.createElement(
+                'span'
+            );
+
+
+        label.textContent =
+            formatLabel(
+                item.content_key
+            );
+
+
+        label.style.display =
+            'block';
+
+        label.style.fontWeight =
+            '700';
+
+        label.style.marginBottom =
+            '6px';
+
+
+        const textarea =
+            document.createElement(
+                'textarea'
+            );
+
+
+        textarea.dataset.key =
+            item.content_key;
+
+
+        textarea.value =
+            item.content_value;
+
+
+        textarea.rows =
+            item.content_value.length > 180
+            ? 7
+            : 3;
+
+
+        textarea.style.width =
+            '100%';
+
+        textarea.style.boxSizing =
+            'border-box';
+
+
+        wrapper.appendChild(
+            label
+        );
+
+
+        wrapper.appendChild(
+            textarea
+        );
+
+
+        editor.appendChild(
+            wrapper
+        );
+
+    });
+
+}
+
+
+
+function formatLabel(key) {
+
+    return key
+        .replaceAll('_', ' ')
+        .replace(
+            /\b\w/g,
+            letter =>
+                letter.toUpperCase()
+        );
+
+}
+
+
+
+document
+    .getElementById('saveContent')
+    .addEventListener(
+        'click',
+        savePageContent
+    );
+
+
+
+async function savePageContent() {
+
+
+    const message =
+        document.getElementById(
+            'contentMessage'
+        );
+
+
+    const fields =
+        document.querySelectorAll(
+            '#contentEditor textarea'
+        );
+
+
+    const updates = [];
+
+
+    fields.forEach(field => {
+
+        updates.push({
+
+            page: currentPage,
+
+            content_key:
+                field.dataset.key,
+
+            content_value:
+                field.value,
+
+            updated_by:
+                adminResult.session.user.id,
+
+            updated_at:
+                new Date().toISOString()
+
+        });
+
+    });
+
+
+    const { error } =
+        await sb
+            .from('site_content')
+            .upsert(
+                updates,
+                {
+                    onConflict:
+                        'page,content_key'
+                }
+            );
+
+
+    if (error) {
+
+        console.error(error);
+
+        showMessage(
+            message,
+            error.message,
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    showMessage(
+        message,
+        'Page changes saved successfully.'
+    );
+
+}
+
+
+
+/* =====================================================
+CAMPAIGN
+===================================================== */
+
+async function loadCampaign() {
+
+
+    const { data, error } =
+        await sb
+            .from('campaign')
+            .select('*')
+            .order('id')
+            .limit(1)
+            .maybeSingle();
+
+
+    if (error) {
+
+        console.error(error);
+
+        return;
+
+    }
+
+
+    if (!data) return;
+
+
+    document.getElementById(
+        'campaignTitle'
+    ).value =
+        data.title;
+
+
+    document.getElementById(
+        'campaignTagline'
+    ).value =
+        data.tagline;
+
+
+    document.getElementById(
+        'targetCommitments'
+    ).value =
+        data.target_commitments;
+
+
+    document.getElementById(
+        'commitmentsReceived'
+    ).value =
+        data.commitments_received;
+
+
+    document.getElementById(
+        'amountRaised'
+    ).value =
+        data.amount_raised;
+
+}
+
+
+
+document
+    .getElementById('campaignForm')
+    .addEventListener(
+        'submit',
+        saveCampaign
+    );
+
+
+
+async function saveCampaign(event) {
+
+
+    event.preventDefault();
+
+
+    const message =
+        document.getElementById(
+            'campaignMessage'
+        );
+
+
+    const { data: existing } =
+        await sb
+            .from('campaign')
+            .select('id')
+            .order('id')
+            .limit(1)
+            .maybeSingle();
+
+
+    const campaign = {
+
+        title:
+            document.getElementById(
+                'campaignTitle'
+            ).value.trim(),
+
+        tagline:
+            document.getElementById(
+                'campaignTagline'
+            ).value.trim(),
+
+        target_commitments:
+            Number(
+                document.getElementById(
+                    'targetCommitments'
+                ).value
+            ),
+
+        commitments_received:
+            Number(
+                document.getElementById(
+                    'commitmentsReceived'
+                ).value
+            ),
+
+        amount_raised:
+            Number(
+                document.getElementById(
+                    'amountRaised'
+                ).value
+            ),
+
+        updated_by:
+            adminResult.session.user.id,
+
+        updated_at:
+            new Date().toISOString()
+
+    };
+
+
+    let response;
+
+
+    if (existing) {
+
+        response =
+            await sb
+                .from('campaign')
+                .update(campaign)
+                .eq(
+                    'id',
+                    existing.id
+                );
+
+    } else {
+
+        response =
+            await sb
+                .from('campaign')
+                .insert(campaign);
+
+    }
+
+
+    if (response.error) {
+
+        console.error(
+            response.error
+        );
+
+
+        showMessage(
+            message,
+            response.error.message,
+            'error'
+        );
+
+        return;
+
+    }
+
+
+    showMessage(
+        message,
+        'Campaign saved successfully.'
+    );
+
+}
+
+
+
+/* =====================================================
+END
+===================================================== */
 
 </script>
 
