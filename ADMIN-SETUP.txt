@@ -1,0 +1,20 @@
+SPIRIT LIFE MISSIONS TEAM — ADMIN SETUP
+
+1. Create a Supabase project.
+2. Open SUPABASE-SETUP.sql in Supabase SQL Editor and run it.
+3. Put your Supabase Project URL and publishable/anon key in admin/supabase-config.js.
+4. Deploy the website.
+5. Open /admin/ and choose “Create the first administrator”.
+6. Create the owner account and sign in.
+7. After the first admin is created, disable public email sign-ups in Supabase Authentication settings if you do not need public account registration.
+
+SECURITY:
+- Never put a Supabase service_role/secret key in this project.
+- /admin/dashboard.html checks for an authenticated session AND an admin_users record.
+- The public Admin link only leads to the sign-in page.
+
+NEXT MANAGEMENT STAGE:
+- Supabase Storage photo upload/replace/delete
+- Editable page content
+- Campaign management
+- Donation/payment confirmation records
