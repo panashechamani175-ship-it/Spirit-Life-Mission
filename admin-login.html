@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin Sign In | Spirit Life Missions Team</title>
+
+<link rel="icon" href="logo.jpg">
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="auth-page">
+
+<main class="auth-shell">
+
+<a class="auth-brand" href="index.html">
+<img src="logo.jpg" alt="Spirit Life Missions Team">
+<span>
+<strong>SPIRIT LIFE</strong>
+<small>MISSIONS TEAM</small>
+</span>
+</a>
+
+<section class="auth-card">
+
+<div class="auth-heading">
+<span class="eyebrow">SECURE ADMIN AREA</span>
+<h1>Welcome back</h1>
+<p>Sign in to manage the Spirit Life Missions Team website.</p>
+</div>
+
+<div id="configWarning" class="alert warning" hidden>
+Supabase is not configured yet. Open
+<b>supabase-config.js</b>
+and add your Project URL and publishable/anon key.
+</div>
+
+<div id="message" class="alert" hidden></div>
+
+<form id="loginForm">
+
+<label>
+Email
+<input
+type="email"
+id="email"
+autocomplete="username"
+required
+>
+</label>
+
+<label>
+Password
+<input
+type="password"
+id="password"
+autocomplete="current-password"
+required
+>
+</label>
+
+<button class="primary" type="submit" id="loginBtn">
+Sign in
+</button>
+
+</form>
+
+<div class="auth-links">
+<a href="admin-setup.html">
+Create the first administrator
+</a>
+
+<a href="index.html">
+← Back to website
+</a>
+</div>
+
+</section>
+
+<p class="security-note">
+🔒 Administrator access is protected by Supabase Authentication.
+The dashboard is not displayed to unauthenticated visitors.
+</p>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+
+<script>
+
+const warning = document.getElementById('configWarning');
+
+if (!supabaseReady()) {
+    warning.hidden = false;
+}
+
+const form = document.getElementById('loginForm');
+const msg = document.getElementById('message');
+const btn = document.getElementById('loginBtn');
+
+form.addEventListener('submit', async e => {
+
+    e.preventDefault();
+
+    msg.hidden = true;
+
+    if (!sb) {
+        warning.hidden = false;
+        return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Signing in…';
+
+    const { error } = await sb.auth.signInWithPassword({
+        email: email.value.trim(),
+        password: password.value
+    });
+
+    if (error) {
+
+        msg.textContent = error.message;
+        msg.className = 'alert error';
+        msg.hidden = false;
+
+        btn.disabled = false;
+        btn.textContent = 'Sign in';
+
+        return;
+    }
+
+    const admin = await requireAdmin(false);
+
+    if (!admin) {
+
+        await sb.auth.signOut();
+
+        msg.textContent =
+            'This account is not authorized as a Spirit Life administrator.';
+
+        msg.className = 'alert error';
+        msg.hidden = false;
+
+        btn.disabled = false;
+        btn.textContent = 'Sign in';
+
+        return;
+    }
+
+    location.href = 'admin-dashboard.html';
+
+});
+
+</script>
+
+</body>
+</html>
