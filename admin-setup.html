@@ -26,7 +26,6 @@
 
 </a>
 
-
 <section class="auth-card">
 
 <div class="auth-heading">
@@ -40,31 +39,28 @@ Create administrator
 </h1>
 
 <p>
-Create the first secure administrator account. Once an administrator exists, new public sign-ups are not treated as administrators.
+Create the first secure administrator account.
 </p>
 
 </div>
-
 
 <div id="configWarning" class="alert warning" hidden>
 Supabase is not configured yet. Add your Project URL and publishable/anon key first.
 </div>
 
-
 <div id="message" class="alert" hidden></div>
-
 
 <form id="setupForm">
 
 <label>
 Name
 <input
+type="text"
 id="name"
 required
 maxlength="80"
 autocomplete="name">
 </label>
-
 
 <label>
 Email
@@ -74,7 +70,6 @@ id="email"
 required
 autocomplete="email">
 </label>
-
 
 <label>
 Password
@@ -91,7 +86,6 @@ Use at least 8 characters.
 
 </label>
 
-
 <label>
 Confirm password
 <input
@@ -101,7 +95,6 @@ required
 minlength="8"
 autocomplete="new-password">
 </label>
-
 
 <button
 class="primary"
@@ -114,7 +107,6 @@ Create administrator
 
 </form>
 
-
 <div class="auth-links">
 
 <a href="admin-login.html">
@@ -125,13 +117,11 @@ Create administrator
 
 </section>
 
-
 <p class="security-note">
-For production, keep public email sign-ups restricted in Supabase after the first administrator is created.
+For production, keep public email sign-ups restricted in Supabase after the administrator accounts are created.
 </p>
 
 </main>
-
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -139,20 +129,17 @@ For production, keep public email sign-ups restricted in Supabase after the firs
 
 <script src="auth.js"></script>
 
-
 <script>
 
-const warning =
-document.getElementById('configWarning');
+const warning = document.getElementById('configWarning');
+const msg = document.getElementById('message');
+const form = document.getElementById('setupForm');
+const btn = document.getElementById('setupBtn');
 
-const msg =
-document.getElementById('message');
-
-const form =
-document.getElementById('setupForm');
-
-const btn =
-document.getElementById('setupBtn');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const confirmInput = document.getElementById('confirm');
 
 
 if (!supabaseReady()) {
@@ -160,7 +147,7 @@ if (!supabaseReady()) {
 }
 
 
-form.addEventListener('submit', async e => {
+form.addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
@@ -175,10 +162,35 @@ form.addEventListener('submit', async e => {
     }
 
 
-    if (password.value !== confirm.value) {
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmInput.value;
+
+
+    /* Check password length */
+
+    if (password.length < 8) {
 
         msg.textContent =
-        'Passwords do not match.';
+        'Password must be at least 8 characters.';
+
+        msg.className =
+        'alert error';
+
+        msg.hidden = false;
+
+        return;
+
+    }
+
+
+    /* Check passwords */
+
+    if (password !== confirmPassword) {
+
+        msg.textContent =
+        'Passwords do not match. Please enter the same password in both fields.';
 
         msg.className =
         'alert error';
@@ -196,14 +208,14 @@ form.addEventListener('submit', async e => {
     'Creating…';
 
 
+    /* Create Supabase Auth account */
+
     const { data, error } =
     await sb.auth.signUp({
 
-        email:
-        email.value.trim(),
+        email: email,
 
-        password:
-        password.value
+        password: password
 
     });
 
@@ -240,15 +252,23 @@ form.addEventListener('submit', async e => {
 
         btn.disabled = false;
 
+        btn.textContent =
+        'Create administrator';
+
         return;
 
     }
 
 
+    /*
+      If email confirmation is enabled,
+      Supabase will not give us a session yet.
+    */
+
     if (!data.session) {
 
         msg.textContent =
-        'Account created. Confirm the email sent by Supabase, then sign in. If email confirmation is disabled, you can sign in immediately.';
+        'Account created. Please confirm the email sent by Supabase, then sign in.';
 
         msg.className =
         'alert success';
@@ -265,22 +285,20 @@ form.addEventListener('submit', async e => {
     }
 
 
+    /* Add user to admin_users */
+
     const { error: insertError } =
     await sb
     .from('admin_users')
     .insert({
 
-        user_id:
-        data.user.id,
+        user_id: data.user.id,
 
-        email:
-        email.value.trim(),
+        email: email,
 
-        display_name:
-        name.value.trim(),
+        display_name: name,
 
-        role:
-        'admin'
+        role: 'admin'
 
     });
 
@@ -290,7 +308,7 @@ form.addEventListener('submit', async e => {
         await sb.auth.signOut();
 
         msg.textContent =
-        'Account created, but administrator authorization could not be completed. Run the supplied SQL setup in Supabase and try again.';
+        'Account was created, but administrator access could not be completed. Check your Supabase admin_users table and RLS policies.';
 
         msg.className =
         'alert error';
@@ -307,8 +325,23 @@ form.addEventListener('submit', async e => {
     }
 
 
-    location.href =
-    'admin-dashboard.html';
+    /* Success */
+
+    msg.textContent =
+    'Administrator created successfully! Redirecting…';
+
+    msg.className =
+    'alert success';
+
+    msg.hidden = false;
+
+
+    setTimeout(() => {
+
+        location.href =
+        'admin-dashboard.html';
+
+    }, 800);
 
 });
 
