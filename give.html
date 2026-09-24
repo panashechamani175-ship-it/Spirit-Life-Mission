@@ -1,7 +1,1370 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Give & Partner | Spirit Life Missions Team</title><link rel="icon" href="logo.jpg"><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><img src="logo.jpg" alt="Spirit Life Missions Team"><span><strong>SPIRIT LIFE</strong><small>MISSIONS TEAM</small></span></a><button class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav"><a href="index.html">Home</a><a href="missionary.html">Missionary</a><a href="ministry.html">Ministry</a><a href="missions.html">Missions</a><a href="centre.html">Centre Vision</a><a href="media.html">Media</a><a class="active" href="give.html">Give</a><a href="contact.html">Contact</a><a class="nav-cta" href="missionary-application.html">Become a Missionary</a></nav></div></header>
-<main><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="index.html">Home</a> / Give</div><span class="eyebrow">GIVE • PRAY • PARTNER</span><h1>Help carry the Gospel and build the mission centre.</h1><p>Your partnership can support evangelistic missions, transportation, Gospel campaigns, Christian literature, outreach equipment, missionaries and the centre vision.</p></div></section>
-<section class="campaign section"><div class="container campaign-shell"><div class="campaign-copy reveal"><span class="eyebrow dark">🏗️ SPIRIT LIFE MISSIONS CENTRE</span><h2>$1 TO $1 MILLION</h2><p class="campaign-line">One Dollar. One Million Commitments. One Mission Centre.</p><p>Goal: <strong>1,000,000 × US$1 commitments</strong>. A contribution of US$5 represents five commitments; US$20 represents twenty; US$100 represents one hundred.</p><div class="stat-row"><div class="stat"><strong data-campaign-goal>1,000,000</strong><span>commitment goal</span></div><div class="stat"><strong data-campaign-confirmed>456,790</strong><span>confirmed so far</span></div></div></div><div class="campaign-card reveal"><div class="campaign-number" data-campaign-remaining>543,210</div><div class="campaign-label">$1 COMMITMENTS TO GO</div><div class="progress-track"><div class="progress-fill" data-campaign-fill style="width:45.679%"></div></div><div class="progress-meta"><strong data-campaign-percent>45.68%</strong><span data-campaign-raised>US$456,790 raised</span></div><p class="confirmed-note">The public counter must only change after a confirmed payment.</p></div></div></section>
-<section class="section"><div class="container two-col"><div><span class="eyebrow dark">MAKE A COMMITMENT</span><h2>Choose an amount.</h2><p class="muted">The form below is ready to become a real payment flow once the ministry's payment provider and secure backend are connected.</p><form class="form-card" id="amountForm"><div class="field"><label>Quick amount</label><div class="amounts"><button class="amount-chip" type="button" data-amount="1">$1</button><button class="amount-chip" type="button" data-amount="5">$5</button><button class="amount-chip" type="button" data-amount="20">$20</button><button class="amount-chip" type="button" data-amount="50">$50</button><button class="amount-chip" type="button" data-amount="100">$100</button></div></div><div class="field"><label for="giveAmount">Custom amount (US$)</label><input id="giveAmount" type="number" min="1" step="1" value="1"></div><div class="commitment-box">Your contribution represents <strong id="giveCommitments">1</strong> campaign commitments.</div><div class="field"><label for="giveMethod">Payment method</label><select id="giveMethod"><option>EcoCash</option><option>InnBucks</option><option>Bank transfer</option><option>Visa / Mastercard</option><option>PayPal</option></select></div><button class="btn btn-gold" type="button" id="donateIntent">Prepare Payment</button><div class="intent-message" id="intentMessage"></div></form></div><div><div class="card"><div class="icon">✓</div><h3>What your giving can support</h3><ul><li>Evangelistic missions</li><li>Missionary transportation</li><li>Gospel campaigns and crusades</li><li>Bibles and Christian literature</li><li>Community outreach</li><li>Mission equipment</li><li>Spirit Life Missions Centre development</li></ul></div><div class="card" style="margin-top:18px"><h3>Important</h3><p>The live counter will never be increased by the browser. A secure payment confirmation/webhook must verify the transaction first.</p></div></div></div></section>
-<section class="section dark-section"><div class="container two-col"><div><span class="eyebrow">BEYOND MONEY</span><h2>Pray. Give. Go. Share.</h2><p class="muted">Partnership is more than a transaction. Prayer, practical service, volunteering and sharing the mission all matter.</p></div><div class="card"><h3>Need payment details?</h3><p>Contact the ministry for the currently approved payment instructions until the online gateway is fully connected.</p><a class="btn btn-gold" href="contact.html">Contact the Ministry</a></div></div></section></main>
-<footer class="footer"><div class="container footer-grid"><div class="footer-brand"><strong>SPIRIT LIFE MISSIONS TEAM</strong><p>Your Spiritual Life Is Our Concern.</p></div><div><h3>Explore</h3><a href="missionary.html">Missionary</a><a href="missions.html">Missions</a></div><div><h3>Vision</h3><a href="centre.html">Centre Vision</a><a href="media.html">Media</a></div><div><h3>Connect</h3><a href="contact.html">Contact</a><a href="https://wa.me/263772504029">WhatsApp</a></div></div><div class="container footer-bottom"><span>© <span data-year></span> Spirit Life Missions Team</span><span>People • Purpose • Presence • A Brighter Tomorrow</span></div></footer><script src="campaign-config.js"></script><script src="site.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Give and partner with Spirit Life Missions Team. Support the Gospel, discipleship, education and the development of the Spirit Life Missions Centre."
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b0b0b"
+  >
+
+  <title>Give & Partner | Spirit Life Missions Team</title>
+
+  <link
+    rel="icon"
+    href="logo.jpg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+
+    <a
+      href="index.html"
+      class="brand"
+    >
+
+      <img
+        src="logo.jpg"
+        alt="Spirit Life Missions Team logo"
+      >
+
+      <span class="brand-text">
+
+        <strong>SPIRIT LIFE</strong>
+
+        <small>MISSIONS TEAM</small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      id="menuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+
+    <nav
+      class="main-nav"
+      id="mainNav"
+    >
+
+      <a href="index.html">Home</a>
+
+      <a href="missionary.html">Missionary</a>
+
+      <a href="ministry.html">Ministry</a>
+
+      <a href="missions.html">Missions</a>
+
+      <a href="centre-vision.html">Centre Vision</a>
+
+      <a href="media.html">Media</a>
+
+      <a
+        href="give.html"
+        class="active"
+      >
+        Give
+      </a>
+
+      <a href="contact.html">Contact</a>
+
+      <a href="become-a-missionary.html">
+        Become a Missionary
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="give-hero">
+
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          SPIRIT LIFE MISSIONS TEAM
+        </span>
+
+        <h1>
+          Help Carry the Gospel
+          <span>
+            and Build the Mission Centre.
+          </span>
+        </h1>
+
+        <p>
+          Your generosity helps support evangelism,
+          discipleship, practical education,
+          community development and the development
+          of the Spirit Life Missions Centre.
+        </p>
+
+        <a
+          href="#give"
+          class="primary-button"
+        >
+          Give Now
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CAMPAIGN
+    ========================== -->
+
+    <section
+      class="campaign-section"
+      id="campaign"
+    >
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          BUILDING THE FUTURE
+        </span>
+
+        <h2>
+          SPIRIT LIFE MISSIONS CENTRE
+        </h2>
+
+        <p>
+          Every genuine contribution helps us move closer
+          to establishing a mission centre dedicated to
+          spiritual transformation, evangelism,
+          discipleship and community development.
+        </p>
+
+      </div>
+
+
+      <div class="campaign-card">
+
+        <div class="campaign-title">
+
+          <div>
+
+            <span class="campaign-label">
+              CAMPAIGN
+            </span>
+
+            <h3>
+              $1 TO $1 MILLION
+            </h3>
+
+          </div>
+
+          <div class="campaign-icon">
+            🏗️
+          </div>
+
+        </div>
+
+
+        <p class="campaign-message">
+          One Dollar. One Million Commitments.
+          One Mission Centre.
+        </p>
+
+
+        <div class="campaign-stats">
+
+          <div class="stat-box">
+
+            <strong id="confirmedAmount">
+              US$0
+            </strong>
+
+            <span>
+              Confirmed Giving
+            </span>
+
+          </div>
+
+
+          <div class="stat-box">
+
+            <strong id="commitmentCount">
+              0
+            </strong>
+
+            <span>
+              Confirmed Commitments
+            </span>
+
+          </div>
+
+
+          <div class="stat-box">
+
+            <strong id="remainingAmount">
+              US$1,000,000
+            </strong>
+
+            <span>
+              Campaign Remaining
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="progress-container">
+
+          <div class="progress-label">
+
+            <span>
+              Campaign Progress
+            </span>
+
+            <strong id="progressPercent">
+              0%
+            </strong>
+
+          </div>
+
+
+          <div class="progress-bar">
+
+            <div
+              class="progress-fill"
+              id="progressFill"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <p class="campaign-note">
+
+          Campaign figures are updated only after
+          donations have been received and verified
+          by the ministry.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         GIVE SECTION
+    ========================== -->
+
+    <section
+      class="give-section"
+      id="give"
+    >
+
+      <div class="give-grid">
+
+
+        <!-- LEFT -->
+
+        <div class="give-information">
+
+          <span class="eyebrow">
+            SUPPORT THE MISSION
+          </span>
+
+          <h2>
+            Give With Purpose
+          </h2>
+
+          <p>
+            Choose the amount you would like to contribute.
+            Your donation will support the work of Spirit
+            Life Missions Team and the development of the
+            mission centre.
+          </p>
+
+
+          <div class="support-list">
+
+
+            <div class="support-item">
+
+              <span class="support-icon">
+                ✝️
+              </span>
+
+              <div>
+
+                <h3>
+                  Evangelism
+                </h3>
+
+                <p>
+                  Supporting the spreading of the Gospel
+                  and reaching communities with the message
+                  of Christ.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="support-item">
+
+              <span class="support-icon">
+                📖
+              </span>
+
+              <div>
+
+                <h3>
+                  Discipleship
+                </h3>
+
+                <p>
+                  Helping people grow spiritually through
+                  teaching, training and discipleship.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="support-item">
+
+              <span class="support-icon">
+                🏫
+              </span>
+
+              <div>
+
+                <h3>
+                  Practical Education
+                </h3>
+
+                <p>
+                  Supporting practical learning and skills
+                  that strengthen individuals and communities.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="support-item">
+
+              <span class="support-icon">
+                🏗️
+              </span>
+
+              <div>
+
+                <h3>
+                  Mission Centre
+                </h3>
+
+                <p>
+                  Helping develop the Spirit Life Missions
+                  Centre and its future ministry facilities.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="donation-card">
+
+
+          <div class="donation-header">
+
+            <span class="eyebrow">
+              GIVE NOW
+            </span>
+
+            <h2>
+              Choose Your Amount
+            </h2>
+
+            <p>
+              Select an amount or enter your own amount.
+            </p>
+
+          </div>
+
+
+          <!-- QUICK AMOUNTS -->
+
+          <div
+            class="amount-buttons"
+            id="amountButtons"
+          >
+
+            <button
+              type="button"
+              class="amount-btn"
+              data-amount="1"
+            >
+              $1
+            </button>
+
+            <button
+              type="button"
+              class="amount-btn"
+              data-amount="5"
+            >
+              $5
+            </button>
+
+            <button
+              type="button"
+              class="amount-btn"
+              data-amount="20"
+            >
+              $20
+            </button>
+
+            <button
+              type="button"
+              class="amount-btn"
+              data-amount="50"
+            >
+              $50
+            </button>
+
+            <button
+              type="button"
+              class="amount-btn"
+              data-amount="100"
+            >
+              $100
+            </button>
+
+          </div>
+
+
+          <!-- CUSTOM AMOUNT -->
+
+          <div class="form-group">
+
+            <label for="donationAmount">
+              Donation Amount (US$)
+            </label>
+
+            <input
+              type="number"
+              id="donationAmount"
+              name="amount"
+              min="1"
+              step="1"
+              value="1"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="Enter amount"
+            >
+
+          </div>
+
+
+          <!-- COMMITMENT -->
+
+          <div class="commitment-preview">
+
+            <span>
+              Your contribution represents
+            </span>
+
+            <strong id="selectedCommitments">
+              1 commitment
+            </strong>
+
+          </div>
+
+
+          <!-- PAYMENT METHOD -->
+
+          <div class="form-group">
+
+            <label>
+              Payment Method
+            </label>
+
+            <div class="single-payment-method">
+
+              <span class="payment-method-icon">
+                📱
+              </span>
+
+              <div>
+
+                <strong>
+                  EcoCash
+                </strong>
+
+                <small>
+                  Continue with Pastor Enoch on WhatsApp
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ECOCASH INFORMATION -->
+
+          <div
+            class="payment-information"
+            id="ecocashInformation"
+          >
+
+            <div class="payment-icon">
+              📱
+            </div>
+
+            <div>
+
+              <h3>
+                EcoCash
+              </h3>
+
+              <p>
+                Donations can be sent to the official
+                EcoCash receiving account.
+              </p>
+
+              <strong class="payment-number">
+                +263 77 250 4029
+              </strong>
+
+              <span class="payment-recipient">
+                Enock Dzonzi
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- DONOR NUMBER -->
+
+          <div
+            class="form-group"
+            id="donorNumberGroup"
+          >
+
+            <label for="donorPhone">
+              Your EcoCash Number
+            </label>
+
+            <input
+              type="tel"
+              id="donorPhone"
+              name="donorPhone"
+              inputmode="tel"
+              autocomplete="tel"
+              placeholder="+263 7X XXX XXXX"
+            >
+
+            <small>
+              Enter the EcoCash number you will use
+              for your donation.
+            </small>
+
+          </div>
+
+
+          <!-- SEND -->
+
+          <button
+            type="button"
+            class="donate-button"
+            id="donateButton"
+          >
+            Send US$1 via WhatsApp
+          </button>
+
+
+          <!-- STATUS -->
+
+          <div
+            class="payment-status"
+            id="paymentStatus"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+
+          <!-- NOTICE -->
+
+          <div class="secure-payment-notice">
+
+            <strong>
+              📱 Continue on WhatsApp
+            </strong>
+
+            <p>
+              After choosing your amount and entering
+              your EcoCash number, click the button above.
+              WhatsApp will open with your donation details
+              already prepared.
+            </p>
+
+            <p>
+              You can then speak directly with
+              <strong>Pastor Enoch</strong> to complete
+              the payment and confirmation.
+            </p>
+
+            <p>
+              <strong>
+                Never send your EcoCash PIN, password
+                or OTP.
+              </strong>
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAYMENT DETAILS
+    ========================== -->
+
+    <section class="payment-section">
+
+      <div class="payment-content">
+
+        <span class="eyebrow">
+          PAYMENT INFORMATION
+        </span>
+
+        <h2>
+          EcoCash Giving
+        </h2>
+
+        <p>
+          The official EcoCash receiving account is:
+        </p>
+
+
+        <div class="recipient-card">
+
+          <span>
+            EcoCash Number
+          </span>
+
+          <strong>
+            +263 77 250 4029
+          </strong>
+
+          <span>
+            Account Name
+          </span>
+
+          <strong>
+            Enock Dzonzi
+          </strong>
+
+        </div>
+
+
+        <p class="payment-warning">
+
+          After making your payment, continue with
+          Pastor Enoch on WhatsApp for confirmation.
+
+        </p>
+
+
+        <p class="payment-warning">
+
+          Never send your EcoCash PIN, password or
+          OTP through this website or WhatsApp.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MISSION CALL
+    ========================== -->
+
+    <section class="mission-call">
+
+      <div class="mission-call-content">
+
+        <span class="eyebrow">
+          PRAY. GIVE. GO. SHARE.
+        </span>
+
+        <h2>
+          Be Part of the Mission
+        </h2>
+
+        <p>
+          There are many ways to participate in what God
+          is doing through Spirit Life Missions Team.
+          You can pray, give, serve, go and share.
+        </p>
+
+
+        <div class="mission-actions">
+
+          <a
+            href="contact.html"
+            class="primary-button"
+          >
+            Contact Ministry
+          </a>
+
+
+          <a
+            href="https://wa.me/263772504029"
+            class="secondary-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp Pastor Enoch
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="site-footer">
+
+    <div class="footer-content">
+
+      <div class="footer-brand">
+
+        <img
+          src="logo.jpg"
+          alt="Spirit Life Missions Team"
+        >
+
+        <div>
+
+          <strong>
+            SPIRIT LIFE
+          </strong>
+
+          <span>
+            MISSIONS TEAM
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <p>
+        Your spiritual life is our concern.
+      </p>
+
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="missions.html">
+          Missions
+        </a>
+
+        <a href="give.html">
+          Give
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </div>
+
+
+      <p class="copyright">
+
+        ©
+        <span id="currentYear"></span>
+        Spirit Life Missions Team.
+        All rights reserved.
+
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SITE SCRIPT
+  ========================== -->
+
+  <script src="campaign-config.js"></script>
+  <script src="site.js"></script>
+
+
+  <!-- =========================
+       GIVING SCRIPT
+  ========================== -->
+
+  <script>
+
+  (() => {
+
+    "use strict";
+
+
+    /*
+     * Campaign target
+     */
+
+    const CAMPAIGN_TARGET =
+      1000000;
+
+
+    /*
+     * Pastor Enoch WhatsApp
+     *
+     * Do not include + in wa.me number.
+     */
+
+    const WHATSAPP_NUMBER =
+      "263772504029";
+
+
+    /*
+     * Verified amount.
+     *
+     * This is intentionally zero because
+     * WhatsApp confirmation is manual.
+     */
+
+    let confirmedAmount = 0;
+
+
+    /*
+     * Elements
+     */
+
+    const amountInput =
+      document.getElementById(
+        "donationAmount"
+      );
+
+
+    const amountButtons =
+      document.querySelectorAll(
+        ".amount-btn"
+      );
+
+
+    const selectedCommitments =
+      document.getElementById(
+        "selectedCommitments"
+      );
+
+
+    const donateButton =
+      document.getElementById(
+        "donateButton"
+      );
+
+
+    const donorNumber =
+      document.getElementById(
+        "donorPhone"
+      );
+
+
+    const paymentStatus =
+      document.getElementById(
+        "paymentStatus"
+      );
+
+
+    const confirmedAmountElement =
+      document.getElementById(
+        "confirmedAmount"
+      );
+
+
+    const commitmentCountElement =
+      document.getElementById(
+        "commitmentCount"
+      );
+
+
+    const remainingAmountElement =
+      document.getElementById(
+        "remainingAmount"
+      );
+
+
+    const progressPercentElement =
+      document.getElementById(
+        "progressPercent"
+      );
+
+
+    const progressFill =
+      document.getElementById(
+        "progressFill"
+      );
+
+
+    /*
+     * Format numbers
+     */
+
+    function formatMoney(value) {
+
+      return new Intl.NumberFormat(
+        "en-US",
+        {
+          maximumFractionDigits: 0
+        }
+      ).format(value);
+
+    }
+
+
+    /*
+     * Get amount
+     */
+
+    function getAmount() {
+
+      const value =
+        Number(
+          amountInput.value
+        );
+
+
+      if (
+        !Number.isFinite(value) ||
+        value < 1
+      ) {
+
+        return 0;
+
+      }
+
+
+      return Math.floor(value);
+
+    }
+
+
+    /*
+     * Update donation interface
+     */
+
+    function updateDonationUI() {
+
+      const amount =
+        getAmount();
+
+
+      if (amount < 1) {
+
+        selectedCommitments.textContent =
+          "Enter an amount";
+
+
+        donateButton.textContent =
+          "Enter Donation Amount";
+
+
+        return;
+
+      }
+
+
+      selectedCommitments.textContent =
+        amount === 1
+          ? "1 commitment"
+          : `${formatMoney(amount)} commitments`;
+
+
+      donateButton.textContent =
+        `Send US$${formatMoney(amount)} via WhatsApp`;
+
+    }
+
+
+    /*
+     * Campaign display
+     */
+
+    function updateCampaignUI() {
+
+      const safeAmount =
+        Math.max(
+          0,
+          confirmedAmount
+        );
+
+
+      const remaining =
+        Math.max(
+          0,
+          CAMPAIGN_TARGET - safeAmount
+        );
+
+
+      const percentage =
+        Math.min(
+          100,
+          (
+            safeAmount /
+            CAMPAIGN_TARGET
+          ) * 100
+        );
+
+
+      confirmedAmountElement.textContent =
+        `US$${formatMoney(safeAmount)}`;
+
+
+      commitmentCountElement.textContent =
+        formatMoney(safeAmount);
+
+
+      remainingAmountElement.textContent =
+        `US$${formatMoney(remaining)}`;
+
+
+      progressPercentElement.textContent =
+        `${percentage.toFixed(2)}%`;
+
+
+      progressFill.style.width =
+        `${percentage}%`;
+
+    }
+
+
+    /*
+     * Quick amount buttons
+     */
+
+    amountButtons.forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const amount =
+              Number(
+                button.dataset.amount
+              );
+
+
+            amountInput.value =
+              amount;
+
+
+            amountButtons.forEach(
+              item => {
+
+                item.classList.remove(
+                  "selected"
+                );
+
+              }
+            );
+
+
+            button.classList.add(
+              "selected"
+            );
+
+
+            updateDonationUI();
+
+          }
+        );
+
+      }
+    );
+
+
+    /*
+     * Custom amount
+     */
+
+    amountInput.addEventListener(
+      "input",
+      () => {
+
+        amountButtons.forEach(
+          item => {
+
+            item.classList.remove(
+              "selected"
+            );
+
+          }
+        );
+
+
+        updateDonationUI();
+
+      }
+    );
+
+
+    /*
+     * Send donation details to WhatsApp
+     */
+
+    donateButton.addEventListener(
+      "click",
+      () => {
+
+        const amount =
+          getAmount();
+
+
+        if (amount < 1) {
+
+          paymentStatus.textContent =
+            "Please enter a valid donation amount.";
+
+          amountInput.focus();
+
+          return;
+
+        }
+
+
+        const phone =
+          donorNumber.value.trim();
+
+
+        if (!phone) {
+
+          paymentStatus.textContent =
+            "Please enter your EcoCash number.";
+
+          donorNumber.focus();
+
+          return;
+
+        }
+
+
+        /*
+         * Prepare WhatsApp message
+         */
+
+        const message =
+`Hello Pastor Enoch,
+
+I would like to make a donation to Spirit Life Missions Team.
+
+Donation amount: US$${formatMoney(amount)}
+
+Payment method: EcoCash
+
+My EcoCash number:
+${phone}
+
+Receiving EcoCash number:
++263 77 250 4029
+
+Account name:
+Enock Dzonzi
+
+I would like to continue with the payment and donation confirmation with you on WhatsApp.
+
+Thank you.
+`;
+
+
+        /*
+         * Encode message
+         */
+
+        const encodedMessage =
+          encodeURIComponent(
+            message
+          );
+
+
+        /*
+         * WhatsApp URL
+         */
+
+        const whatsappURL =
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+
+        /*
+         * Status
+         */
+
+        paymentStatus.textContent =
+          "Opening WhatsApp for Pastor Enoch...";
+
+
+        /*
+         * Open WhatsApp
+         */
+
+        window.open(
+          whatsappURL,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
+      }
+    );
+
+
+    /*
+     * Initial interface
+     */
+
+    updateDonationUI();
+
+    updateCampaignUI();
+
+
+    /*
+     * Current year
+     */
+
+    const currentYear =
+      document.getElementById(
+        "currentYear"
+      );
+
+
+    if (currentYear) {
+
+      currentYear.textContent =
+        new Date().getFullYear();
+
+    }
+
+  })();
+
+(() => {
+  "use strict";
+
+  const menuBtn = document.getElementById("menuBtn");
+  const mainNav = document.getElementById("mainNav");
+
+  if (!menuBtn || !mainNav) return;
+
+  menuBtn.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("open");
+
+    menuBtn.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    menuBtn.setAttribute(
+      "aria-label",
+      isOpen ? "Close menu" : "Open menu"
+    );
+
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+  });
+
+  /* Close menu after clicking a navigation link */
+  mainNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuBtn.setAttribute(
+        "aria-label",
+        "Open menu"
+      );
+
+      menuBtn.textContent = "☰";
+    });
+  });
+
+})();
+
+  </script>
+
+</body>
+</html>
