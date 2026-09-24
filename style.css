@@ -1834,4 +1834,38 @@ input:focus-visible {
 
 }
 
+.tiktok-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 11px 16px;
+  border-radius: 999px;
+  color: #fff;
+  background: #000;
+  border: 1px solid rgba(255,255,255,.25);
+  text-decoration: none;
+  font-weight: 700;
+  animation: tiktokPulse 2s ease-in-out infinite;
+  transition: .25s ease;
+}
 
+.tiktok-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 3px 3px 0 #25f4ee,
+              -3px -3px 0 #fe2c55;
+}
+
+.tiktok-icon {
+  animation: tiktokBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes tiktokPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+@keyframes tiktokBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
