@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /missionary-application.html
+
+Sitemap: https://spiritlifemission.co.zw/sitemap.xml
